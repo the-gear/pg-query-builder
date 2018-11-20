@@ -25,8 +25,7 @@ exec('git add .');
 exec('git config user.name "Pavel Lang"');
 exec('git config user.email "langpavel@phpskelet.org"');
 exec('git commit -m "docs(docs): update gh-pages"');
-// exec(`git push --force --quiet "https://${ghToken}@${repository}" master:gh-pages`);
 exec(
-  `git push --force --quiet "git@github.com:the-gear/pg-query-builder.git" master:gh-pages`,
+  `git push --force --quiet "https://${ghToken}@${repository}" master:gh-pages`,
 );
 echo('Docs deployed!!');

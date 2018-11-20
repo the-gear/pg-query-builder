@@ -1,6 +1,6 @@
 {
   "name": "@the-gear/pg-query-builder",
-  "version": "0.0.1",
+  "version": "0.0.0-semantically-released",
   "description": "",
   "keywords": [
     "pg",
