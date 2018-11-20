@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectBuilder can change command 1`] = `
+SQL {
+  SELECT DISTINCT
+  a, b
+  FROM TEST
+} Arguments Array []
+`;
+
+exports[`SelectBuilder should create complex query 1`] = `
+SQL {
+  SELECT
+  CONCAT('Expr:', "tableId") as "id", "fromPerson"."personPublicId" as "from", "toPerson"."personPublicId" as "to",*
+  FROM "Table"
+  JOIN "Person" "fromPerson" on "Table"."fromPersonId" = "fromPerson"."personId"
+  JOIN "Person" "toPerson" on "Table"."toPersonId" = "toPerson"."personId"
+  WHERE (FALSE)
+  ORDER BY "createdAt" DESC
+} Arguments Array []
+`;
+
+exports[`SelectBuilder should create complex query 2`] = `
+SQL {
+  SELECT
+  CONCAT('Expr:', "tableId") as "id", "fromPerson"."personPublicId" as "from", "toPerson"."personPublicId" as "to",*
+  FROM "Table"
+  JOIN "Person" "fromPerson" on "Table"."fromPersonId" = "fromPerson"."personId"
+  JOIN "Person" "toPerson" on "Table"."toPersonId" = "toPerson"."personId"
+  WHERE ("fromPerson"."userId" = $1 OR "toPerson"."userId" = $2)
+    AND ("createdAt" >= $3)
+    AND ("kinds" IN ($4))
+    AND ("fromPerson"."personPublicId" = $5 OR "toPerson"."personPublicId" = $6)
+  ORDER BY "createdAt" DESC
+  LIMIT 20
+} Arguments Array [
+  "123",
+  "123",
+  2018-11-20T00:23:06.000Z,
+  Array [
+    "IN",
+    "OUT",
+  ],
+  "the-peer",
+  "the-peer",
+]
+`;
+
+exports[`SelectBuilder should create minimal query 1`] = `
+SQL {
+  SELECT
+  1 + 1 as result
+} Arguments Array []
+`;
+
+exports[`SelectBuilder should create simple query 1`] = `
+SQL {
+  SELECT
+  a, b, "c", 1 + 1 as calculated
+  FROM "testTable"
+} Arguments Array []
+`;
