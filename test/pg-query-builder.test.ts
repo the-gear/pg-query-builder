@@ -14,6 +14,11 @@ describe('SelectBuilder', () => {
     expect(query).toMatchSnapshot();
   });
 
+  it('should query all columns if none explicitly selected', () => {
+    const query = new SelectBuilder('test');
+    expect(query).toMatchSnapshot();
+  });
+
   it('should create simple query', () => {
     const query = new SelectBuilder('"testTable"')
       .select('a, b')

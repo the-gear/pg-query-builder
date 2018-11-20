@@ -70,7 +70,7 @@ export default class SelectBuilder {
   createQuery() {
     let sql: SqlFragment[] = [
       this.command, // usually 'SELECT'
-      this.selection.join(', '),
+      this.selection.length ? this.selection.join(', ') : '*',
       this.tableSource ? `FROM ${this.tableSource}` : '',
       ...this.joins,
     ];

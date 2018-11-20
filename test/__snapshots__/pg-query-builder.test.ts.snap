@@ -60,3 +60,11 @@ SQL {
   FROM "testTable"
 } Arguments Array []
 `;
+
+exports[`SelectBuilder should query all columns if none explicitly selected 1`] = `
+SQL {
+  SELECT
+  *
+  FROM test
+} Arguments Array []
+`;
